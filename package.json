@@ -6,7 +6,9 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "lint": "eslint . --fix",
+    "format": "prettier --write app/",
   },
   "dependencies": {
     "@nuxt/content": "^3.5.1",
