@@ -16,6 +16,7 @@ onMounted(async () => (posts.value = await queryCollection("content").all()))
             {{ post.title }}
           </nuxt-link>
         </h2>
+        test
         <h3>{{ new Date(post.date).toLocaleString() }}</h3>
         <span>
           {{ post.description }}

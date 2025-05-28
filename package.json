@@ -9,6 +9,7 @@
     "preview": "nuxt preview",
     "lint": "eslint . --fix",
     "format": "prettier --write app/",
+    "prepare": "husky"
   },
   "dependencies": {
     "@nuxt/content": "^3.5.1",
@@ -18,5 +19,9 @@
     "eslint": "^9.27.0",
     "nuxt": "^3.17.4",
     "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "prettier": "3.5.3"
   }
 }
