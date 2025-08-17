@@ -7,20 +7,28 @@ onMounted(async () => (posts.value = await queryCollection("content").all()))
 </script>
 
 <template>
-  <main>
-    <h1>My blog page</h1>
-    <section>
-      <article v-for="post of posts" :key="post.id">
-        <h2>
-          <nuxt-link :to="`${post.path}`">
-            {{ post.title }}
-          </nuxt-link>
-        </h2>
-        <h3>{{ new Date(post.date).toLocaleString() }}</h3>
-        <span>
-          {{ post.description }}
-        </span>
-      </article>
-    </section>
-  </main>
+  <div class="container mt-5">
+    <main>
+      <h1 class="display-2 text-center mb-5">cognitai.cz</h1>
+      <section class="row">
+        <div class="col-lg-8 mx-auto">
+          <article v-for="post of posts" :key="post.id" class="card mb-4">
+            <div class="card-body">
+              <h2 class="card-title">
+                <nuxt-link :to="`${post.path}`" class="text-decoration-none">
+                  {{ post.title }}
+                </nuxt-link>
+              </h2>
+              <h6 class="card-subtitle mb-2 text-muted">
+                {{ new Date(post.date).toLocaleString() }}
+              </h6>
+              <p class="card-text">
+                {{ post.description }}
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
 </template>

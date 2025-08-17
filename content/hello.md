@@ -1,13 +1,13 @@
 ---
-title: Getting started with variables and data types
-description: variables are important...
+title: Getting started with vue in markdown
+description: on click alert will popup from loaded vue component
 date: 2023-04-02
 ---
 
+# {{ $doc.title }}
+
 Variables are containers for pieces of data. That data can be one of many different data types.
 
-let firstName = 'John';
-let lastName = 'Doe';
-
-// We can do a console.log to show the value
-console.log(firstName, lastName);
+::card-text
+The content of the carda a
+::
