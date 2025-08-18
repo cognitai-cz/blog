@@ -1,5 +1,6 @@
 ---
 title: Getting started with vue in markdown
+author: Samuel Kopecky
 description: on click alert will popup from loaded vue component
 date: 2023-04-02
 ---

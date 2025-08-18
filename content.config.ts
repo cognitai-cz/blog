@@ -7,6 +7,7 @@ export default defineContentConfig({
       source: "**",
       schema: z.object({
         date: z.date(),
+        author: z.string(),
       }),
     }),
   },

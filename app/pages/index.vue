@@ -3,7 +3,11 @@ import type { ContentCollectionItem } from "@nuxt/content"
 
 const posts = ref<ContentCollectionItem[]>([])
 
-onMounted(async () => (posts.value = await queryCollection("content").all()))
+onMounted(() =>
+  queryCollection("content")
+    .all()
+    .then((res) => (posts.value = res)),
+)
 </script>
 
 <template>
@@ -20,7 +24,7 @@ onMounted(async () => (posts.value = await queryCollection("content").all()))
                 </nuxt-link>
               </h2>
               <h6 class="card-subtitle mb-2 text-muted">
-                {{ new Date(post.date).toLocaleString() }}
+                <span v-if="post.author">By {{ post.author }} • </span>{{ new Date(post.date).toLocaleString() }}
               </h6>
               <p class="card-text">
                 {{ post.description }}
