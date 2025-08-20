@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { formatDate } from "../utils"
+
 const route = useRoute()
 
 const { data: page } = await useAsyncData("page-" + route.path, () => {
@@ -32,14 +34,6 @@ watch(
   },
   { immediate: true },
 )
-
-const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
-}
 
 // eslint-disable-next-line
 const estimateReadingTime = (content: any) => {
@@ -106,7 +100,7 @@ const estimateReadingTime = (content: any) => {
               <div class="reading-meta d-flex align-items-center gap-3 text-muted small">
                 <span>
                   <i class="bi bi-clock me-1" />
-                  {{ estimateReadingTime(page.body?.children) }} min read
+                  {{ estimateReadingTime((page.body as any)?.children) }} min read
                 </span>
                 <span>
                   <i class="bi bi-eye me-1" />
@@ -115,7 +109,7 @@ const estimateReadingTime = (content: any) => {
               </div>
             </div>
 
-            <hr class="my-4" >
+            <hr class="my-4" />
           </header>
 
           <!-- Article Content -->

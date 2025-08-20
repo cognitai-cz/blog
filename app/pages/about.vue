@@ -9,7 +9,7 @@
           <header class="mb-5">
             <h1 class="display-4 fw-bold text-dark mb-3">About</h1>
 
-            <hr class="my-4" />
+            <hr class="my-4" >
           </header>
 
           <!-- About Content -->

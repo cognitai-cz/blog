@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ContentCollectionItem } from "@nuxt/content"
+import { formatDate } from "../utils"
 
 const posts = ref<ContentCollectionItem[]>([])
 
@@ -9,17 +10,9 @@ onMounted(() =>
     .then((res) => (posts.value = res)),
 )
 
-const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
-}
-
 const estimateReadingTime = (text: string) => {
   const wordsPerMinute = 200
-  const words = text.split(' ').length
+  const words = text.split(" ").length
   return Math.ceil(words / wordsPerMinute) || 1
 }
 </script>
@@ -27,7 +20,7 @@ const estimateReadingTime = (text: string) => {
 <template>
   <div>
     <AppHeader />
-    
+
     <div class="container py-5">
       <main>
         <!-- Hero Section -->
@@ -37,7 +30,7 @@ const estimateReadingTime = (text: string) => {
             Exploring the intersection of technology, AI, and innovation
           </p>
           <div class="badge bg-primary-subtle text-primary px-3 py-2">
-            {{ posts.length }} {{ posts.length === 1 ? 'Article' : 'Articles' }} Published
+            {{ posts.length }} {{ posts.length === 1 ? "Article" : "Articles" }} Published
           </div>
         </section>
 
@@ -58,14 +51,17 @@ const estimateReadingTime = (text: string) => {
                     </div>
                     <div class="reading-time">
                       <small class="text-muted">
-                        <i class="bi bi-clock me-1"/>
+                        <i class="bi bi-clock me-1" />
                         {{ estimateReadingTime(post.description) }} min read
                       </small>
                     </div>
                   </div>
 
                   <h2 class="card-title h4 mb-3">
-                    <nuxt-link :to="`${post.path}`" class="text-decoration-none text-dark stretched-link">
+                    <nuxt-link
+                      :to="`${post.path}`"
+                      class="text-decoration-none text-dark stretched-link"
+                    >
                       {{ post.title }}
                     </nuxt-link>
                   </h2>
@@ -75,9 +71,7 @@ const estimateReadingTime = (text: string) => {
                   </p>
 
                   <div class="d-flex align-items-center justify-content-between">
-                    <span class="text-primary small fw-medium">
-                      Read more →
-                    </span>
+                    <span class="text-primary small fw-medium"> Read more → </span>
                   </div>
                 </div>
               </div>
@@ -85,7 +79,7 @@ const estimateReadingTime = (text: string) => {
 
             <div v-if="posts.length === 0" class="text-center py-5">
               <div class="text-muted">
-                <i class="bi bi-file-text fs-1 mb-3 d-block"/>
+                <i class="bi bi-file-text fs-1 mb-3 d-block" />
                 <h5>No posts yet</h5>
                 <p>Check back soon for new content!</p>
               </div>
@@ -101,7 +95,9 @@ const estimateReadingTime = (text: string) => {
 
 <style scoped>
 .blog-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .blog-card:hover {
