@@ -1,3 +1,5 @@
+<script lang="ts" setup></script>
+
 <template>
   <footer class="bg-light mt-5 py-4">
     <div class="container">
@@ -20,14 +22,7 @@
             <div class="col-sm-6">
               <h6 class="fw-semibold text-dark mb-2">Connect</h6>
               <div class="d-flex gap-2">
-                <!-- TODO: Add links -->
-                <a href="#" class="text-muted" title="Twitter">
-                  <i class="bi bi-twitter" />
-                </a>
-                <a href="#" class="text-muted" title="LinkedIn">
-                  <i class="bi bi-linkedin" />
-                </a>
-                <a href="#" class="text-muted" title="GitHub">
+                <a :href="GITHUB_LINK" class="text-muted" title="GitHub">
                   <i class="bi bi-github" />
                 </a>
               </div>

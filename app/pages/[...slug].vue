@@ -1,35 +1,36 @@
 <script setup lang="ts">
-import { formatDate } from "../utils"
+import type { Article } from "~/composables/useArticles"
 
 const route = useRoute()
+const posts = useArticles()
 
 const { data: page } = await useAsyncData("page-" + route.path, () => {
   return queryCollection("content").path(route.path).first()
 })
-const { data: pages } = await useAsyncData("page-all", () => {
-  return queryCollection("content").all()
+
+const nextPage = ref<Article>()
+const previousPage = ref<Article>()
+
+const contentPageIds = computed(() => {
+  if (!posts.value) return undefined
+  return posts.value.map((p: Article) => p.id as string)
 })
-
-const nextPagePath = ref<string>()
-const previousPagePath = ref<string>()
-
-const contentPageIds = computed(() => pages.value?.map((p) => p.id))
 const currentPageIndex = computed(() => contentPageIds.value?.indexOf(page.value!.id))
 
 watch(
   currentPageIndex,
   () => {
-    if (!contentPageIds.value || currentPageIndex.value === undefined || !pages.value) return
+    if (!contentPageIds.value || currentPageIndex.value === undefined || !posts.value) return
     if (currentPageIndex.value === 0) {
-      nextPagePath.value = undefined
+      nextPage.value = undefined
     } else {
-      nextPagePath.value = pages.value[currentPageIndex.value - 1]?.path
+      nextPage.value = posts.value[currentPageIndex.value - 1]
     }
 
     if (currentPageIndex.value === contentPageIds.value.length - 1) {
-      previousPagePath.value = undefined
+      previousPage.value = undefined
     } else {
-      previousPagePath.value = pages.value[currentPageIndex.value + 1]?.path
+      previousPage.value = posts.value[currentPageIndex.value + 1]
     }
   },
   { immediate: true },
@@ -144,27 +145,29 @@ const estimateReadingTime = (content: any) => {
             </div>
 
             <!-- Navigation -->
-            <nav class="d-flex justify-content-between align-items-center">
-              <NuxtLink
-                v-if="previousPagePath"
-                :to="previousPagePath"
-                class="btn btn-outline-primary"
-              >
-                <i class="bi bi-arrow-left me-1" />
-                Previous Article
-              </NuxtLink>
-              <div v-else />
+            <nav class="d-flex justify-content-center align-items-start gap-4 flex-wrap">
+              <div v-if="previousPage" class="text-center">
+                <NuxtLink :to="previousPage.path" class="btn btn-outline-primary d-block mb-2">
+                  <i class="bi bi-arrow-left me-1" />
+                  Previous Article
+                </NuxtLink>
+                <small class="text-muted">{{ previousPage.title }}</small>
+              </div>
 
-              <NuxtLink to="/" class="btn btn-primary">
-                <i class="bi bi-house me-1" />
-                All Articles
-              </NuxtLink>
+              <div class="text-center">
+                <NuxtLink to="/" class="btn btn-primary d-block mb-2">
+                  <i class="bi bi-house me-1" />
+                  All Articles
+                </NuxtLink>
+              </div>
 
-              <NuxtLink v-if="nextPagePath" :to="nextPagePath" class="btn btn-outline-primary">
-                Next Article
-                <i class="bi bi-arrow-right ms-1" />
-              </NuxtLink>
-              <div v-else />
+              <div v-if="nextPage" class="text-center">
+                <NuxtLink :to="nextPage.path" class="btn btn-outline-primary d-block mb-2">
+                  Next Article
+                  <i class="bi bi-arrow-right ms-1" />
+                </NuxtLink>
+                <small class="text-muted">{{ nextPage.title }}</small>
+              </div>
             </nav>
           </footer>
         </div>

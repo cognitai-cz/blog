@@ -10,5 +10,5 @@ date: 2023-04-02
 Variables are containers for pieces of data. That data can be one of many different data types.
 
 ::card-text
-The content of the carda a
+The content inside is used via a vue component in markdown!
 ::
