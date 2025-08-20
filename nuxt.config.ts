@@ -1,7 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ["@nuxt/content", "@nuxt/eslint", "@nuxt/test-utils"],
-  css: ["bootstrap/dist/css/bootstrap.css"],
+  css: [
+    "bootstrap/dist/css/bootstrap.css",
+    "bootstrap-icons/font/bootstrap-icons.css"
+  ],
   devtools: { enabled: true },
   future: {
     compatibilityVersion: 4,
