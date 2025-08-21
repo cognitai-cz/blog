@@ -7,7 +7,7 @@ const { data: page } = await useAsyncData("page-" + route.path, () => {
   return queryCollection("content").path(route.path).first()
 })
 const { data: pages } = await useAsyncData("page-all", () => {
-  return queryCollection("content").all()
+  return queryCollection("content").order("date", "DESC").all()
 })
 
 const nextPagePath = ref<string>()

@@ -6,6 +6,7 @@ const posts = ref<ContentCollectionItem[]>([])
 
 onMounted(() =>
   queryCollection("content")
+    .order("date", "DESC")
     .all()
     .then((res) => (posts.value = res)),
 )
