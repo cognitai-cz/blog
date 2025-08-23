@@ -86,12 +86,12 @@ const estimateReadingTime = (content: any) => {
                   <!-- Autor name & date -->
                   <div>
                     <div class="fw-semibold text-dark">{{ page.author }}</div>
-                    <small class="text-muted">{{ formatDate(page.date) }}</small>
+                    <small class="text-muted">{{ formatDate(new Date(page.date)) }}</small>
                   </div>
                 </div>
                 <div v-else class="text-muted">
                   <i class="bi bi-calendar3 me-1" />
-                  {{ formatDate(page.date) }}
+                  {{ formatDate(new Date(page.date)) }}
                 </div>
               </div>
 

@@ -46,7 +46,7 @@ const estimateReadingTime = (text: string) => {
                         {{ post.author }}
                       </span>
                       <small class="text-muted">
-                        {{ formatDate(post.date) }}
+                        {{ formatDate(new Date(post.date)) }}
                       </small>
                     </div>
                     <div class="reading-time">
