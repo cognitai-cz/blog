@@ -2,6 +2,7 @@
 import type { ContentCollectionItem } from "@nuxt/content"
 
 const posts = ref<ContentCollectionItem[]>([])
+const { locales, setLocales, locale } = useI18n()
 
 onMounted(() =>
   queryCollection("content")
@@ -27,10 +28,10 @@ const estimateReadingTime = (text: string) => {
         <section class="text-center mb-5">
           <h1 class="display-3 fw-bold text-dark mb-3">cognitai.cz</h1>
           <p class="lead text-muted mb-4">
-            Exploring the intersection of technology, AI, and innovation
+            {{ $t("home.shortInfo") }}
           </p>
           <div class="badge bg-primary-subtle text-primary px-3 py-2">
-            {{ posts.length }} {{ posts.length === 1 ? "Article" : "Articles" }} Published
+            {{ $t('home.articlesPublished', { count: posts.length }) }}
           </div>
         </section>
 
@@ -46,13 +47,13 @@ const estimateReadingTime = (text: string) => {
                         {{ post.author }}
                       </span>
                       <small class="text-muted">
-                        {{ formatDate(new Date(post.date)) }}
+                        {{ formatDate(new Date(post.date), locale) }}
                       </small>
                     </div>
                     <div class="reading-time">
                       <small class="text-muted">
                         <i class="bi bi-clock me-1" />
-                        {{ estimateReadingTime(post.description) }} min read
+                        {{ estimateReadingTime(post.description) }} {{ $t('blog.minRead') }}
                       </small>
                     </div>
                   </div>
@@ -71,7 +72,7 @@ const estimateReadingTime = (text: string) => {
                   </p>
 
                   <div class="d-flex align-items-center justify-content-between">
-                    <span class="text-primary small fw-medium"> Read more → </span>
+                    <span class="text-primary small fw-medium"> {{ $t('blog.readMore') }} </span>
                   </div>
                 </div>
               </div>
@@ -80,8 +81,8 @@ const estimateReadingTime = (text: string) => {
             <div v-if="posts.length === 0" class="text-center py-5">
               <div class="text-muted">
                 <i class="bi bi-file-text fs-1 mb-3 d-block" />
-                <h5>No posts yet</h5>
-                <p>Check back soon for new content!</p>
+                <h5>{{ $t('blog.noPostsTitle') }}</h5>
+                <p>{{ $t('blog.noPostsMessage') }}</p>
               </div>
             </div>
           </div>

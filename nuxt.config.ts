@@ -1,10 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxt/content", "@nuxt/eslint", "@nuxt/test-utils"],
-  css: [
-    "bootstrap/dist/css/bootstrap.css",
-    "bootstrap-icons/font/bootstrap-icons.css"
-  ],
+  modules: ["@nuxt/content", "@nuxt/eslint", "@nuxt/test-utils", "@nuxtjs/i18n"],
+  css: ["bootstrap/dist/css/bootstrap.css", "bootstrap-icons/font/bootstrap-icons.css"],
   devtools: { enabled: true },
   future: {
     compatibilityVersion: 4,
@@ -21,5 +18,11 @@ export default defineNuxtConfig({
       ],
     },
   },
+  i18n: {
+    defaultLocale: "cz",
+    locales: [
+      { code: "en", name: "English", file: "en.json" },
+      { code: "cz", name: "Czech", file: "cz.json" },
+    ],
+  },
 })
-

@@ -1,0 +1,30 @@
+{
+  "home": {
+    "shortInfo": "Exploring the intersection of technology, AI, and innovation"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "toggleNavigation": "Toggle navigation"
+  },
+  "footer": {
+    "tagline": "Exploring the intersection of technology, AI, and innovation.",
+    "quickLinks": "Quick Links",
+    "connect": "Connect",
+    "copyright": "© {year} cognitai.cz. All rights reserved.",
+    "builtWith": "Built using Nuxt 3"
+  },
+  "blog": {
+    "readMore": "Read more →",
+    "minRead": "min read",
+    "noPostsTitle": "No posts yet",
+    "noPostsMessage": "Check back soon for new content!",
+    "published": "Published",
+    "previousArticle": "Previous Article",
+    "nextArticle": "Next Article",
+    "allArticles": "All Articles"
+  },
+  "about": {
+    "title": "About"
+  }
+}

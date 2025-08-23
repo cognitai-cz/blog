@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
+const { locale } = useI18n()
 
 const { data: page } = await useAsyncData("page-" + route.path, () => {
   return queryCollection("content").path(route.path).first()
@@ -86,28 +87,28 @@ const estimateReadingTime = (content: any) => {
                   <!-- Autor name & date -->
                   <div>
                     <div class="fw-semibold text-dark">{{ page.author }}</div>
-                    <small class="text-muted">{{ formatDate(new Date(page.date)) }}</small>
+                    <small class="text-muted">{{ formatDate(new Date(page.date), locale) }}</small>
                   </div>
                 </div>
                 <div v-else class="text-muted">
                   <i class="bi bi-calendar3 me-1" />
-                  {{ formatDate(new Date(page.date)) }}
+                  {{ formatDate(new Date(page.date), locale) }}
                 </div>
               </div>
 
               <div class="reading-meta d-flex align-items-center gap-3 text-muted small">
                 <span>
                   <i class="bi bi-clock me-1" />
-                  {{ estimateReadingTime((page.body as any)?.children) }} min read
+                  {{ estimateReadingTime((page.body as any)?.children) }} {{ $t('blog.minRead') }}
                 </span>
                 <span>
                   <i class="bi bi-eye me-1" />
-                  Published
+                  {{ $t('blog.published') }}
                 </span>
               </div>
             </div>
 
-            <hr class="my-4" />
+            <hr class="my-4" >
           </header>
 
           <!-- Article Content -->
@@ -125,17 +126,17 @@ const estimateReadingTime = (content: any) => {
                 class="btn btn-outline-primary"
               >
                 <i class="bi bi-arrow-left me-1" />
-                Previous Article
+                {{ $t('blog.previousArticle') }}
               </NuxtLink>
               <div v-else />
 
               <NuxtLink to="/" class="btn btn-primary">
                 <i class="bi bi-house me-1" />
-                All Articles
+                {{ $t('blog.allArticles') }}
               </NuxtLink>
 
               <NuxtLink v-if="nextPagePath" :to="nextPagePath" class="btn btn-outline-primary">
-                Next Article
+                {{ $t('blog.nextArticle') }}
                 <i class="bi bi-arrow-right ms-1" />
               </NuxtLink>
               <div v-else />
