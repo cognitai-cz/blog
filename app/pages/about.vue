@@ -7,9 +7,9 @@
         <div class="col-lg-8 mx-auto">
           <!-- About Header -->
           <header class="mb-5">
-            <h1 class="display-4 fw-bold text-dark mb-3">About</h1>
+            <h1 class="display-4 fw-bold text-dark mb-3">{{ $t('about.title') }}</h1>
 
-            <hr class="my-4" />
+            <hr class="my-4" >
           </header>
 
           <!-- About Content -->

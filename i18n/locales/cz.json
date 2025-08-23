@@ -1,0 +1,30 @@
+{
+  "home": {
+    "shortInfo": "Zkoumání průniku technologií, umělé inteligence a inovací"
+  },
+  "navigation": {
+    "home": "Domů",
+    "about": "O nás",
+    "toggleNavigation": "Přepnout navigaci"
+  },
+  "footer": {
+    "tagline": "Zkoumání průniku technologií, umělé inteligence a inovací.",
+    "quickLinks": "Rychlé odkazy",
+    "connect": "Spojení",
+    "copyright": "© {year} cognitai.cz. Všechna práva vyhrazena.",
+    "builtWith": "Vytvořeno pomocí Nuxt 3"
+  },
+  "blog": {
+    "readMore": "Číst více →",
+    "minRead": "min čtení",
+    "noPostsTitle": "Zatím žádné příspěvky",
+    "noPostsMessage": "Brzy se vraťte pro nový obsah!",
+    "published": "Publikováno",
+    "previousArticle": "Předchozí článek",
+    "nextArticle": "Následující článek",
+    "allArticles": "Všechny články"
+  },
+  "about": {
+    "title": "O nás"
+  }
+}
