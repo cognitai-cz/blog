@@ -32,7 +32,7 @@ import { GITHUB_LINK } from "~/utils/constants"
           </div>
         </div>
       </div>
-      <hr class="my-4" />
+      <hr class="my-4" >
       <div class="row align-items-center">
         <div class="col-md-6">
           <p class="text-muted mb-0 small">
