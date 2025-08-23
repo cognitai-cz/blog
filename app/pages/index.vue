@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { ContentCollectionItem } from "@nuxt/content"
-import { formatDate } from "../utils"
 
 const posts = ref<ContentCollectionItem[]>([])
 

@@ -3,6 +3,18 @@
     <div class="container">
       <NuxtLink to="/" class="navbar-brand fw-bold text-primary"> cognitai.cz </NuxtLink>
 
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
       <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">

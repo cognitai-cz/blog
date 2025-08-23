@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { formatDate } from "../utils"
-
 const route = useRoute()
 
 const { data: page } = await useAsyncData("page-" + route.path, () => {
@@ -119,30 +117,6 @@ const estimateReadingTime = (content: any) => {
 
           <!-- Article Footer -->
           <footer class="mt-5">
-            <div class="card bg-light border-0 mb-4">
-              <div class="card-body p-4">
-                <div class="row align-items-center">
-                  <div class="col-md-8">
-                    <h5 class="card-title mb-2">Enjoyed this article?</h5>
-                    <p class="card-text text-muted mb-0">
-                      Share your thoughts and connect with me on social media.
-                    </p>
-                  </div>
-                  <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                    <div class="d-flex gap-2 justify-content-md-end">
-                      <!-- TODO: Add links -->
-                      <a href="#" class="btn btn-outline-primary btn-sm">
-                        <i class="bi bi-twitter me-1" />Share
-                      </a>
-                      <a href="#" class="btn btn-outline-secondary btn-sm">
-                        <i class="bi bi-linkedin me-1" />Share
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <!-- Navigation -->
             <nav class="d-flex justify-content-between align-items-center">
               <NuxtLink
