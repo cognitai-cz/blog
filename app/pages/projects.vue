@@ -29,11 +29,9 @@
 <script setup>
 // Define SEO metadata for the page
 useHead({
-  title: 'Projects',
-  meta: [
-    { name: 'description', content: 'View our projects.' }
-  ]
-});
+  title: "Projects",
+  meta: [{ name: "description", content: "View our projects." }],
+})
 </script>
 
 <style scoped>

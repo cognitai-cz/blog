@@ -20,7 +20,9 @@ import { GITHUB_LINK } from "~/utils/constants"
                   <NuxtLink to="/about" class="text-muted text-decoration-none">About</NuxtLink>
                 </li>
                 <li>
-                  <NuxtLink to="/projects" class="text-muted text-decoration-none">Projects</NuxtLink>
+                  <NuxtLink to="/projects" class="text-muted text-decoration-none"
+                    >Projects</NuxtLink
+                  >
                 </li>
               </ul>
             </div>
