@@ -1,11 +1,6 @@
-# Průvodce moderní AI architekturou, základní pojmy
+# Průvodce AI architekturou, základní pojmy
 
 Zatímco uživatelské rozhraní AI nástrojů je stále jednodušší, technologie v pozadí je komplexnější a výkonnější než kdy dříve. Pro ty, kteří chtějí skutečně pochopit, jak vytvořit robustní a inteligentní aplikace, je nezbytné znát klíčové architektonické koncepty. V tomto článku se podíváme na základní stavební bloky moderních AI systémů a vysvětlíme, jak spolupracují.
-
----
-
-### Klíčové technologie a jejich role v AI architektuře
-
 Následující pojmy představují páteř většiny pokročilých AI aplikací, se kterými se dnes setkáváte.
 
 #### 1. Velký jazykový model (LLM – Large Language Model)
